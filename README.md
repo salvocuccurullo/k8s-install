@@ -52,6 +52,6 @@ Then you can join any number of worker nodes by running the following on each as
         --discovery-token-ca-cert-hash sha256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
-== CALICO ==
+# == CALICO ==
 
     kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/custom-resources.yaml
