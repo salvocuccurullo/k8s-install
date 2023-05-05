@@ -54,4 +54,11 @@ Then you can join any number of worker nodes by running the following on each as
 
 # == CALICO ==
 
+    kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/tigera-operator.yaml
+
     kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/custom-resources.yaml
+    # or download the file and adjust the cidr range according to your kubeadm init config
+    wget https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/custom-resources.yaml
+
+    watch kubectl get pods -n calico-system
+
