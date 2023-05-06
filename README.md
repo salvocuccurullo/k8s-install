@@ -1,5 +1,5 @@
 
-# == DOCKER ===
+## == DOCKER/CONTAINERD ===
 
     sudo apt-get install     ca-certificates     curl     gnupg
 
@@ -25,7 +25,7 @@
     sudo  service containerd restart
 
 
-# == KUBEADM ===
+## == KUBEADM ===
 
     sudo kubeadm init --apiserver-advertise-address 192.168.56.3 --pod-network-cidr=192.168.0.0/20
 
@@ -52,7 +52,7 @@ Then you can join any number of worker nodes by running the following on each as
         --discovery-token-ca-cert-hash sha256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
-# == CALICO ==
+## == CALICO ==
 
     kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/tigera-operator.yaml
 
