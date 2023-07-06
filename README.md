@@ -1,7 +1,7 @@
 
 ## == DOCKER/CONTAINERD ===
 
-    sudo apt-get install     ca-certificates     curl     gnupg
+    sudo apt-get install -y ca-certificates curl gnupg
 
     sudo install -m 0755 -d /etc/apt/keyrings
 
@@ -14,23 +14,24 @@
     
     sudo apt-get update
     
-    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
     #set systemd for containerd
 
-    sudo containerd config default | tee /etc/containerd/config.toml
+    sudo containerd config default | sudo tee /etc/containerd/config.toml
     
-    sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml  
+    sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml
     
     sudo  service containerd restart
 
 
-## == KUBEADM ===
+## == KUBEADM Debian/Ubuntu flavour ===
 
     sudo apt-get update
+
     sudo apt-get install -y apt-transport-https ca-certificates curl
 
-    sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
 
     echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
