@@ -88,13 +88,15 @@ Note: if you check the pod status on control plane node, you can see that coredn
 As soon as the setup of Calico is properly completed, coredns pods will run as expected.
 
 Install Tiger operator
+    
     kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/tigera-operator.yaml
 
-Install or download the Calico file
+Install the Calico file
+
     kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/custom-resources.yaml
 
-    # or download the file 
-    # and adjust the cidr range according to your kubeadm init config
+OR download the file  and adjust the cidr range according to your kubeadm init config
+
     wget https://raw.githubusercontent.com/projectcalico/calico/v3.25.1/manifests/custom-resources.yaml
 
     _____________________________________________
